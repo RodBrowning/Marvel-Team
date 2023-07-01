@@ -1,5 +1,3 @@
-import './index.css'
-
 import App from './App'
 import GlobalStyles from './GlobalStyles/globals'
 import React from 'react'

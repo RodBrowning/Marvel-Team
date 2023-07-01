@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Marvel App",
+  "name": "Marvel Super Heros",
+  "description": "Find all about Marvel Characters",
   "icons": [
     {
       "src": "favicon.ico",

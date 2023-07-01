@@ -5,7 +5,7 @@ import React from 'react'
 const App: React.FC = () => {
   return (
     <Header>
-      <Logo src="/assest/images/logo.svg" alt="Logo" />
+      <Logo src="/assets/images/logo.svg" alt="Logo" />
     </Header>
   )
 }

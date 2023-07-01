@@ -3,6 +3,8 @@ import GlobalStyles from './GlobalStyles/globals'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import ResetStyles from './GlobalStyles/reset'
+import Theme from './GlobalStyles/theme'
+import { ThemeProvider } from 'styled-components'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(
@@ -11,7 +13,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={Theme}>
+      <App />
+    </ThemeProvider>
     <ResetStyles />
     <GlobalStyles />
   </React.StrictMode>

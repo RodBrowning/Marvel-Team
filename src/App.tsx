@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import { AppContainer } from './Components/appContainer/appContainer.styled'
 import { Header } from './Components/header/header.styled'
 import Home from './Pages/Home.page'
 import { Logo } from './Components/header/header_logo.styled'
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
 
 const App: React.FC = () => {
   return (
-    <div>
+    <AppContainer>
       <Header>
         <a href="/">
           <Logo src="/assets/images/logo.svg" alt="Logo" />
@@ -31,7 +32,7 @@ const App: React.FC = () => {
       <main>
         <RouterProvider router={router} />
       </main>
-    </div>
+    </AppContainer>
   )
 }
 

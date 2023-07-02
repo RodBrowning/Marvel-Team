@@ -5,7 +5,7 @@ export default createGlobalStyle`
     :root {
         --big-title: clamp(2.5rem, 2.0117rem + 2.4414vw, 4.209rem);
         --medium-title: clamp(2rem, 2.0117rem + 2.4414vw, 3.157rem);
-        --small-title: clamp(1.7rem, 2.0117rem + 2.4414vw, 2.369rem);
+        --small-title: clamp(1.7rem, 0.9354rem + 3.8229vw, 2.369rem);
 
         --big-sub-title: clamp(1.3rem, 0.9593rem + 1.7036vw, 1.777rem);
         --medium-sub-title: clamp(0.9rem, 0.5907rem + 1.5464vw, 1.333rem);

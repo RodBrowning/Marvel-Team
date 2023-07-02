@@ -7,8 +7,8 @@ interface SectionTitleProps {
 export const SectionTitle = styled.h3<SectionTitleProps>`
   position: relative;
   font-size: ${(props) =>
-    props.size === 'medium' ? 'var(--medium-sub-title)' : 'var(--big-sub-title)'};
-  line-height: ${(props) => (props.size === 'medium' ? '2.5' : '2')};
+    props.size === 'medium' ? 'var(--medium-sub-title)' : 'var(--small-title)'};
+  line-height: ${(props) => (props.size === 'medium' ? '2.5' : '1.5')};
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.deepBlack};
   &:before,

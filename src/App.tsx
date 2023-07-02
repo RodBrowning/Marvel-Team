@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { AppContainer } from './Components/appContainer/appContainer.styled'
+import Character from './Pages/Character.page'
 import { Header } from './Components/header/header.styled'
 import Home from './Pages/Home.page'
 import { Logo } from './Components/header/header_logo.styled'
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/character/:id',
-    element: <div>Character!</div>,
+    element: <Character />,
   },
   {
     path: '/*',

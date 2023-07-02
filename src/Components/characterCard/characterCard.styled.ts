@@ -27,7 +27,7 @@ export const StyledCard = styled.div`
     color: ${({ theme }) => theme.colors.deepBlack};
     font-size: var(--medium-sub-title);
     font-weight: bold;
-    padding: 5px 20px;
+    padding: 6px 20px;
   }
 
   @media (prefers-color-scheme: dark) {

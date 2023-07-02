@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { AppContainer } from './Components/appContainer/appContainer.styled'
-import Character from './Pages/Character.page'
+import Character from './Pages/Character/Character.page'
 import { Header } from './Components/header/header.styled'
 import Home from './Pages/Home.page'
 import { Logo } from './Components/header/header_logo.styled'

@@ -8,7 +8,8 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
   position: relative;
   font-size: ${(props) =>
     props.size === 'medium' ? 'var(--medium-sub-title)' : 'var(--small-title)'};
-  line-height: ${(props) => (props.size === 'medium' ? '2.5' : '1.5')};
+  line-height: ${(props) => (props.size === 'medium' ? '2.5' : '1.7')};
+  font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.deepBlack};
   &:before,
@@ -23,7 +24,7 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
   }
 
   &:before {
-    top: -2px;
+    top: -4px;
     left: 41px;
   }
   &:after {

@@ -5,7 +5,7 @@ export default createGlobalStyle`
     :root {
         --big-title: clamp(2.5rem, 2.0117rem + 2.4414vw, 4.209rem);
         --medium-title: clamp(2rem, 2.0117rem + 2.4414vw, 3.157rem);
-        --small-title: 2.369rem;
+        --small-title: clamp(1.7rem, 2.0117rem + 2.4414vw, 2.369rem);
 
         --big-sub-title: 1.777rem;
         --medium-sub-title: 1.333rem;
@@ -20,5 +20,6 @@ export default createGlobalStyle`
     }
     body {
         font-family: var(--primary-font-family);
+        color: ${({ theme }) => theme.colors.black};
     }
     `

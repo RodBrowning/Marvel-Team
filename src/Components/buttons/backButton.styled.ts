@@ -8,6 +8,7 @@ export const BackButton = styled.a`
   text-decoration: none;
   padding: 12px 40px;
   text-transform: uppercase;
+  cursor: pointer;
   clip-path: polygon(
     15px 0,
     100% 0,

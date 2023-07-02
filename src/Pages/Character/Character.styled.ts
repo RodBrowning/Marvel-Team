@@ -4,10 +4,9 @@ export const CharacterDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: max-content;
-  min-height: 500px;
   grid-gap: 20px;
   margin-top: 4rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 5rem;
 `
 export const CharacterInfo = styled.div`
   grid-column: 1 / 6;
@@ -79,8 +78,12 @@ export const Comics = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+    cursor: pointer;
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
     }
   }
 `

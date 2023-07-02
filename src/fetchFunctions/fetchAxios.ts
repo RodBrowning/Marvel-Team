@@ -8,11 +8,10 @@ const axiosInstance = axios.create({
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchData = async (url: string, params = {}): Promise<any> => {
-  const privateKey = '9566eda4a32c6af79023be9a8bba520bd017a999'
-  const publicKey = '758cac0842d019abcf2860b4aac04e10'
+  const privateKey = process.env.REACT_APP_PRIVATE_KEY
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY
   const ts = new Date().getTime().toString()
   const md5Hash = MD5(`${ts}${privateKey}${publicKey}`).toString()
-
   const apiParams = {
     apikey: publicKey,
     ts,

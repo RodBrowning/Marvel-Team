@@ -88,7 +88,7 @@ const Search: React.FC = () => {
               if (undefinedImg !== null) {
                 imgURL = '/assets/images/unknown-char.jpg'
               }
-              return <CharacterCard key={hero.id} name={hero.name} imgURL={imgURL} />
+              return <CharacterCard key={hero.id} id={hero.id} name={hero.name} imgURL={imgURL} />
             })
           })}
         {hasNextPage && <div ref={sentinelRef} style={{ height: '10px' }}></div>}

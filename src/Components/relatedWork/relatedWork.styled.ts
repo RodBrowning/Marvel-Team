@@ -4,7 +4,7 @@ export const RelatedWork = styled.div`
   position: relative;
   background: white;
   display: flex;
-  justify-content: start;
+  justify-content: space-around;
   gap: 24px;
   padding-block: 50px;
   padding-inline: clamp(2.8125rem, -0.4018rem + 16.0714vw, 5.625rem);
@@ -19,6 +19,7 @@ export const RelatedWork = styled.div`
     left: 0;
     border: 3px solid ${({ theme }) => theme.colors.secondary};
     box-sizing: border-box;
+    pointer-events: none;
   }
 
   &:before {

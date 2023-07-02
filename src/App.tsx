@@ -1,13 +1,14 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { Header } from './Components/header/header.styled'
+import Home from './Pages/Home.page'
 import { Logo } from './Components/header/header_logo.styled'
 import React from 'react'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Hello world!</div>,
+    element: <Home />,
   },
   {
     path: '/character/:id',
@@ -23,7 +24,9 @@ const App: React.FC = () => {
   return (
     <div>
       <Header>
-        <Logo src="/assets/images/logo.svg" alt="Logo" />
+        <a href="/">
+          <Logo src="/assets/images/logo.svg" alt="Logo" />
+        </a>
       </Header>
       <main>
         <RouterProvider router={router} />

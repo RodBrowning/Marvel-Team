@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyledCard = styled.div`
   position: relative;
+  height: 250px;
   border: 3px solid ${({ theme }) => theme.colors.deepBlack};
   cursor: pointer;
   transition: all 0.25s ease-in-out;
@@ -18,6 +19,7 @@ export const StyledCard = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
+    text-align: right;
     background-color: ${({ theme }) => theme.colors.primary};
     border: 3px solid ${({ theme }) => theme.colors.deepBlack};
     border-bottom: 0;

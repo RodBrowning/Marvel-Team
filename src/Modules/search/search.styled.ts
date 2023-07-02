@@ -4,5 +4,6 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-block: 2.438rem;
+  padding-top: 4rem;
+  padding-bottom: 2.5rem;
 `

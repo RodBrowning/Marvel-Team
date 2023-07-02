@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface HeroProps {
-  bgImage: string
+  bgimage: string
 }
 
 export const Hero = styled.div<HeroProps>`
@@ -12,7 +12,7 @@ export const Hero = styled.div<HeroProps>`
   text-align: center;
   gap: 16px;
   height: 20rem;
-  background: url(${({ bgImage }) => bgImage});
+  background: url(${({ bgimage }) => bgimage});
   background-size: cover;
   background-position: top;
   background-color: rgba(0, 0, 0, 0.5);

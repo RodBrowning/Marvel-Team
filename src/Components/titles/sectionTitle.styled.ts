@@ -30,6 +30,10 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
     bottom: 4px;
     left: 0;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 `
 
 SectionTitle.defaultProps = {

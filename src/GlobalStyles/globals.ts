@@ -7,8 +7,8 @@ export default createGlobalStyle`
         --medium-title: clamp(2rem, 2.0117rem + 2.4414vw, 3.157rem);
         --small-title: clamp(1.7rem, 2.0117rem + 2.4414vw, 2.369rem);
 
-        --big-sub-title: 1.777rem;
-        --medium-sub-title: 1.333rem;
+        --big-sub-title: clamp(1.3rem, 0.9593rem + 1.7036vw, 1.777rem);
+        --medium-sub-title: clamp(0.9rem, 0.5907rem + 1.5464vw, 1.333rem);
         --small-sub-title: 1.000rem;
         
         --regular-text: 1.000rem;
@@ -17,6 +17,9 @@ export default createGlobalStyle`
         --secondary-font-family: 'Roboto', sans-serif;
 
         --default-padding: clamp(0.8rem, -2.8571rem + 18.2857vw, 2rem);
+    }
+    html {
+        height: 100%;
     }
     body {
         font-family: var(--primary-font-family);

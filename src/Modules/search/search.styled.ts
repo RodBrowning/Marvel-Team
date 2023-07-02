@@ -22,4 +22,13 @@ export const SearchNameDisplay = styled.div`
     text-transform: capitalize;
     font-weight: 100;
   }
+
+  @media (prefers-color-scheme: dark) {
+    svg path {
+      fill: white;
+    }
+    h4 {
+      color: white;
+    }
+  }
 `

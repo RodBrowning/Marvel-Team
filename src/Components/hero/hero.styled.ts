@@ -10,20 +10,22 @@ export const Hero = styled.div<HeroProps>`
   justify-content: center;
   align-content: center;
   text-align: center;
-  gap: 24px;
-  height: clamp(20.3125rem, 16.7898rem + 17.6136vw, 30rem);
+  gap: 16px;
+  height: 20rem;
   background: url(${({ bgImage }) => bgImage});
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: color;
   padding: var(--default-padding);
 
   color: white;
 
   h1 {
     font-weight: bold;
-    font-size: var(--big-title);
+    font-size: var(--medium-title);
     text-transform: uppercase;
-    -webkit-text-stroke: clamp(0.1875rem, 0.1518rem + 0.1786vw, 0.3125rem);
+    -webkit-text-stroke: 3px;
     line-height: 1.2;
     span {
       color: ${({ theme }) => theme.colors.primary};

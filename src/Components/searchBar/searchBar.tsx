@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { StyledSearchBar } from './searchBar.styled'
 
 interface Props {
-  searchCallback: React.Dispatch<React.SetStateAction<string>>
+  searchCallback: (name: string) => void
 }
 
 const SearchBar: React.FC<Props> = ({ searchCallback }) => {

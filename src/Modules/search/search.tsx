@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
 import { SearchContainer, SearchNameDisplay } from './search.styled'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { Cards } from './cards.styled'
 import CharacterCard from '../../Components/characterCard/characterCard'
 import { FetchStatus } from '../../Components/fetchStatus/fetchStatus.styled'
+import React from 'react'
 import SearchBar from '../../Components/searchBar/searchBar'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../fetchFunctions/fetchAxios'
@@ -21,8 +22,8 @@ interface Hero {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fetchHeros = async ({ queryKey, pageParam = 0 }: any) => {
-  const [, nameStartsWith, apiEndPoint] = queryKey
-  const searchName = nameStartsWith !== '' ? nameStartsWith : undefined
+  const [, heroName, apiEndPoint] = queryKey
+  const searchName = heroName !== '' ? heroName : undefined
 
   const data = await fetchData(apiEndPoint, {
     nameStartsWith: searchName,
@@ -32,10 +33,11 @@ const fetchHeros = async ({ queryKey, pageParam = 0 }: any) => {
 }
 
 const Search: React.FC = () => {
-  const [nameStartsWith, setNameStartsWith] = useState<string>('')
+  const navigate = useNavigate()
+  const { heroName } = useParams()
   const oneHour = 1 * 3600000
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
-    queryKey: ['allHeroes', nameStartsWith, '/v1/public/characters'],
+    queryKey: ['allHeroes', heroName, '/v1/public/characters'],
     queryFn: fetchHeros,
     staleTime: oneHour,
     getNextPageParam: (lastPage) => {
@@ -46,11 +48,15 @@ const Search: React.FC = () => {
 
   const sentinelRef = useInfiniteScrollTrigger(data, fetchNextPage, isFetchingNextPage)
 
+  const redirectCallback = (name: string) => {
+    return navigate(`/${name}`)
+  }
+
   return (
     <SearchContainer>
       <SectionTitle>Characters</SectionTitle>
-      <SearchBar searchCallback={setNameStartsWith} />
-      {nameStartsWith !== '' ? (
+      <SearchBar searchCallback={redirectCallback} />
+      {heroName && heroName !== '' ? (
         <SearchNameDisplay>
           <svg
             width="18"
@@ -66,7 +72,7 @@ const Search: React.FC = () => {
               fill="#393939"
             />
           </svg>
-          <h4>{nameStartsWith}</h4>
+          <h4>{heroName}</h4>
         </SearchNameDisplay>
       ) : (
         ''

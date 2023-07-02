@@ -15,7 +15,7 @@ const RelatedWorkList: React.FC<Props> = ({ title, data }) => {
       <SectionTitle size="medium">{title}</SectionTitle>
       {data.map((item: any) => {
         return (
-          <a key={item.resourceURI} href="#1">
+          <a key={item.resourceURI} href={`#${item.name}`}>
             {item.name}
           </a>
         )

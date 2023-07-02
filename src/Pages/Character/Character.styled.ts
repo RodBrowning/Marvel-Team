@@ -105,6 +105,11 @@ export const ImageDiv = styled.div<ImageDivProps>`
     0 100%,
     0 110px
   );
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    filter: brightness(130%);
+    scale: 1.01;
+  }
   img {
     visibility: hidden;
     position: absolute;

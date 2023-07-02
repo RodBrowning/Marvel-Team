@@ -19,6 +19,6 @@ export const Cards = styled.div`
   }
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `

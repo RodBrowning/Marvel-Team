@@ -39,4 +39,10 @@ export const StyledCard = styled.div`
       border-right: 0;
     }
   }
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
+    p {
+      padding: 6px 6px;
+    }
+  }
 `

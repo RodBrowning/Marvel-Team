@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import { StyledCard } from './characterCard.styled'
 import { truncateString } from '../../utils/utils'
@@ -11,10 +12,10 @@ interface IProps {
 const CharacterCard: React.FC<IProps> = ({ name, imgURL, id }) => {
   return (
     <StyledCard>
-      <a href={`/character/${id}`}>
+      <Link to={`/character/${id}`}>
         <img src={imgURL} alt={`${name} image`} />
         <p>{truncateString(name, 20, '')}</p>
-      </a>
+      </Link>
     </StyledCard>
   )
 }

@@ -44,4 +44,7 @@ export default createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    button, a, input, select {
+    -webkit-tap-highlight-color: transparent;
+  }
 `

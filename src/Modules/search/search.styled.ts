@@ -8,7 +8,7 @@ export const SearchContainer = styled.div`
   margin-top: clamp(2rem, -2.8571rem + 18.2857vw, 4rem);
   padding-bottom: 2.5rem;
   > h3 {
-    margin-bottom: 15px;
+    margin-bottom: clamp(0rem, -2.2768rem + 8.5714vw, 0.9375rem);
   }
 `
 export const SearchNameDisplay = styled.div`

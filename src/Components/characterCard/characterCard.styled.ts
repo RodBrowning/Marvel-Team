@@ -11,6 +11,7 @@ export const StyledCard = styled.div<CardProps>`
     ${({ theme }) => theme.colors.deepBlack};
   cursor: pointer;
   transition: all 0.25s ease-in-out;
+  touch-action: manipulation;
   &:hover {
     filter: brightness(130%);
     scale: 1.01;
@@ -33,13 +34,13 @@ export const StyledCard = styled.div<CardProps>`
     color: ${({ theme }) => theme.colors.deepBlack};
     font-size: var(--medium-sub-title);
     font-weight: bold;
-    padding: ${({ size }) => (size === 'regular' ? '6px 20px' : '0 10px')};
+    padding: ${({ size }) => (size === 'regular' ? '6px 20px' : '3px 10px')};
   }
 
   @media (prefers-color-scheme: dark) {
-    border: 3px solid white;
+    border: ${({ size }) => (size === 'regular' ? '3px' : '2px')} solid white;
     p {
-      border: 3px solid white;
+      border: ${({ size }) => (size === 'regular' ? '3px' : '2px')} solid white;
       color: white;
       border-bottom: 0;
       border-right: 0;

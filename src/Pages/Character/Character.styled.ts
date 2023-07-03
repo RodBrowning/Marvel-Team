@@ -90,6 +90,10 @@ export const Comics = styled.div`
       height: 100%;
       object-fit: cover;
       border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
+      &:hover {
+        filter: brightness(130%);
+        scale: 1.01;
+      }
     }
   }
 `

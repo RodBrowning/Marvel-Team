@@ -11,6 +11,11 @@ export const RelatedWorkDiv = styled.div`
     grid-column: 1 / 4;
     width: 100%;
     margin-inline: auto;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      filter: brightness(130%);
+      scale: 1.01;
+    }
   }
   @media (prefers-color-scheme: dark) {
     color: white;

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Cards } from './cards.styled'
 import CharacterCard from '../../Components/characterCard/characterCard'
 import { FetchStatus } from '../../Components/fetchStatus/fetchStatus.styled'
+import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
 import React from 'react'
 import SearchBar from '../../Components/searchBar/searchBar'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
@@ -78,31 +79,32 @@ const Search: React.FC = () => {
         ''
       )}
       <Cards>
-        {data &&
-          data?.pages.map((page) => {
-            if (page.results?.length == 0) {
-              return (
-                <FetchStatus key="0">
-                  <h4>Nothing found.</h4>
-                </FetchStatus>
-              )
-            }
-            return page.results?.map((hero: Hero) => {
-              let imgURL = `${hero.thumbnail.path}.${hero.thumbnail.extension}`
-              const undefinedImg = imgURL.match('image_not_available')
+        {data?.pages.map((page) => {
+          if (page.results.length == 0) {
+            return (
+              <FetchStatus key="0">
+                <h4>Nothing found.</h4>
+              </FetchStatus>
+            )
+          }
+          return page.results.map((hero: Hero) => {
+            let imgURL = `${hero.thumbnail.path}.${hero.thumbnail.extension}`
+            const undefinedImg = imgURL.match('image_not_available')
 
-              if (undefinedImg !== null) {
-                imgURL = '/assets/images/unknown-char.jpg'
-              }
-              return <CharacterCard key={hero.id} id={hero.id} name={hero.name} imgURL={imgURL} />
-            })
-          })}
+            if (undefinedImg !== null) {
+              imgURL = '/assets/images/unknown-char.jpg'
+            }
+            return <CharacterCard key={hero.id} id={hero.id} name={hero.name} imgURL={imgURL} />
+          })
+        })}
         {hasNextPage && <div ref={sentinelRef} style={{ height: '10px' }}></div>}
       </Cards>
-      {isFetchingNextPage && (
-        <FetchStatus>
-          <h4>Loading...</h4>
-        </FetchStatus>
+      {isFetchingNextPage || !data ? (
+        <LoadingStatus>
+          <h1>Loading...</h1>
+        </LoadingStatus>
+      ) : (
+        ''
       )}
     </SearchContainer>
   )

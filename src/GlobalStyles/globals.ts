@@ -23,6 +23,7 @@ export default createGlobalStyle`
     }
     body {
         font-family: var(--primary-font-family);
+        font-size: var(--regular-text);
         color: ${({ theme }) => theme.colors.black};
     }
     `

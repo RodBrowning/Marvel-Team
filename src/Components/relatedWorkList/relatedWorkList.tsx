@@ -18,7 +18,7 @@ const RelatedWorkList: React.FC<Props> = ({ title, data, path }) => {
         const itemIndex = item.resourceURI.lastIndexOf('/') + 1
         const itemID = item.resourceURI.substring(itemIndex)
         return (
-          <a key={item.resourceURI} href={`${path}/${itemID}`}>
+          <a key={item.resourceURI} href={`/${path}/${itemID}`}>
             {item.name}
           </a>
         )

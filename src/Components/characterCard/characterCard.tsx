@@ -7,11 +7,12 @@ interface IProps {
   imgURL: string
   name: string
   id: number
+  size?: 'regular' | 'small'
 }
 
-const CharacterCard: React.FC<IProps> = ({ name, imgURL, id }) => {
+const CharacterCard: React.FC<IProps> = ({ name, imgURL, id, size }) => {
   return (
-    <StyledCard>
+    <StyledCard size={size}>
       <Link to={`/character/${id}`}>
         <img src={imgURL} alt={`${name} image`} />
         <p>{truncateString(name, 20, '')}</p>

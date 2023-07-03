@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 
-export const StyledCard = styled.div`
+interface CardProps {
+  size?: 'regular' | 'small'
+}
+
+export const StyledCard = styled.div<CardProps>`
   position: relative;
-  height: 250px;
-  border: 3px solid ${({ theme }) => theme.colors.deepBlack};
+  height: ${({ size }) => (size === 'regular' ? '250px' : '150px')};
+  border: ${({ size }) => (size === 'regular' ? '3px' : '2px')} solid
+    ${({ theme }) => theme.colors.deepBlack};
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   &:hover {
@@ -21,13 +26,15 @@ export const StyledCard = styled.div`
     right: 0;
     text-align: right;
     background-color: ${({ theme }) => theme.colors.primary};
-    border: 3px solid ${({ theme }) => theme.colors.deepBlack};
+    border: ${({ size }) => (size === 'regular' ? '3px' : '2px')} solid
+      ${({ theme }) => theme.colors.deepBlack};
     border-bottom: 0;
     border-right: 0;
     color: ${({ theme }) => theme.colors.deepBlack};
-    font-size: var(--medium-sub-title);
+    font-size: ${({ size }) =>
+      size === 'regular' ? 'var(--medium-sub-title)' : 'var(--small-sub-title)'};
     font-weight: bold;
-    padding: 6px 20px;
+    padding: ${({ size }) => (size === 'regular' ? '6px 20px' : '0 10px')};
   }
 
   @media (prefers-color-scheme: dark) {
@@ -42,7 +49,11 @@ export const StyledCard = styled.div`
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
     p {
-      padding: 6px 6px;
+      padding: ${({ size }) => (size === 'regular' ? '6px 6px' : '0 10px')};
     }
   }
 `
+
+StyledCard.defaultProps = {
+  size: 'regular',
+}

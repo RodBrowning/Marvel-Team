@@ -13,6 +13,7 @@ import React from 'react'
 import { RelatedWork } from '../../Components/relatedWork/relatedWork.styled'
 import RelatedWorkList from '../../Components/relatedWorkList/relatedWorkList'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
+import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../fetchFunctions/fetchAxios'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
@@ -60,7 +61,7 @@ const Character: React.FC = () => {
         <div>
           <CharacterDiv>
             <CharacterInfo>
-              <h1>{charData?.name}</h1>
+              <SectionTitle>{charData?.name}</SectionTitle>
               <Description>
                 <h6>Description</h6>
                 <p>

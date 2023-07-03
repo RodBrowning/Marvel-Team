@@ -57,6 +57,7 @@ export const RelatedWorkInfo = styled.div`
   > p {
     line-height: 24px;
     width: 85%;
+    font-family: var(--secondary-font-family);
   }
   @media (prefers-color-scheme: dark) {
     h1 {
@@ -130,6 +131,7 @@ export const DateDisplay = styled(InfoBlock)`
 export const CardsTitle = styled.p`
   position: relative;
   font-size: var(--big-sub-title);
+  font-family: var(--primary-font-family);
   color: ${({ theme }) => theme.colors.deepBlack};
   line-height: 2 !important;
   margin-top: 30px;

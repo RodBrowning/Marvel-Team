@@ -4,7 +4,6 @@ import App from './App'
 import GlobalStyles from './GlobalStyles/globals'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import ResetStyles from './GlobalStyles/reset'
 import Theme from './GlobalStyles/theme'
 import { ThemeProvider } from 'styled-components'
 import reportWebVitals from './reportWebVitals'
@@ -18,7 +17,6 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={Theme}>
         <App />
-        <ResetStyles />
         <GlobalStyles />
       </ThemeProvider>
     </QueryClientProvider>

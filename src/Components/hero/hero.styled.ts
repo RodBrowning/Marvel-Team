@@ -23,7 +23,7 @@ export const Hero = styled.div<HeroProps>`
 
   h1 {
     font-weight: bold;
-    font-size: var(--medium-title);
+    font-size: var(--big-title);
     text-transform: uppercase;
     -webkit-text-stroke: 3px;
     line-height: 1.2;

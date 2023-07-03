@@ -44,7 +44,7 @@ export const RelatedWork = styled.div`
       text-decoration: none;
       color: ${({ theme }) => theme.colors.black};
       line-height: 22px;
-      font-weight: 100;
+      font-weight: 400;
       font-family: var(--secondary-font-family);
       cursor: pointer;
       &:hover,
@@ -52,6 +52,11 @@ export const RelatedWork = styled.div`
         color: ${({ theme }) => theme.colors.primary};
         text-decoration: underline;
       }
+    }
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
+    div a {
+      font-weight: 300;
     }
   }
 `

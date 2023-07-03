@@ -51,6 +51,7 @@ export const CharacterInfo = styled.div`
   p {
     text-align: justify;
     line-height: 24px;
+    font-family: var(--secondary-font-family);
   }
 
   @media (prefers-color-scheme: dark) {

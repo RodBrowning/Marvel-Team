@@ -6,7 +6,7 @@ import {
   Description,
   ImageDiv,
 } from './Character.styled'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { BackButton } from '../../Components/buttons/backButton.styled'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
@@ -81,12 +81,9 @@ const Character: React.FC = () => {
                         imgURL = '/assets/images/unknown-char.jpg'
                       }
                       return (
-                        <img
-                          key={comic.id}
-                          src={imgURL}
-                          alt={`${comic.title} image`}
-                          title={comic.title}
-                        />
+                        <Link to={`/comic/${comic.id}`} key={comic.id}>
+                          <img src={imgURL} alt={`${comic.title} image`} title={comic.title} />
+                        </Link>
                       )
                     })}
                   </div>

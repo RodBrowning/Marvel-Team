@@ -6,7 +6,7 @@ export const RelatedWorkDiv = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 20px;
   margin-top: 4rem;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   > img {
     grid-column: 1 / 4;
     width: 100%;
@@ -45,10 +45,9 @@ export const RelatedWorkInfo = styled.div`
     position: relative;
     font-size: var(--medium-title);
     color: ${({ theme }) => theme.colors.deepBlack};
-    line-height: 1.5;
-    margin-bottom: 30px;
+    line-height: 1.1;
+    margin-bottom: 15px;
     font-weight: 400;
-    margin-bottom: 8px;
   }
   > p {
     line-height: 24px;

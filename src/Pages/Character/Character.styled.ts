@@ -9,6 +9,7 @@ export const CharacterDiv = styled.div`
   padding-bottom: 5rem;
 `
 export const CharacterInfo = styled.div`
+  display: inline-grid;
   grid-column: 1 / 6;
   h1,
   h6 {
@@ -71,6 +72,7 @@ export const Description = styled.div`
   margin-bottom: 25px;
 `
 export const Comics = styled.div`
+  margin-top: auto;
   h6 {
     font-size: var(--big-sub-title);
   }
@@ -96,6 +98,7 @@ export const ImageDiv = styled.div<ImageDivProps>`
   background-size: cover;
   background-position: center;
   grid-column: 6 / 13;
+  height: 100%;
   min-height: 350px;
   clip-path: polygon(
     110px 0,

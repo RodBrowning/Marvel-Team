@@ -11,7 +11,7 @@ export const Hero = styled.div<HeroProps>`
   align-content: center;
   text-align: center;
   gap: 16px;
-  height: 30rem;
+  height: clamp(15rem, -3.586rem + 69.9708vw, 30rem);
   background: url(${({ bgimage }) => bgimage});
   background-size: cover;
   background-position: top;

@@ -15,7 +15,7 @@ import CharacterCard from '../../Components/characterCard/characterCard'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
 import React from 'react'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
-import { fetchData } from '../../fetchFunctions/fetchAxios'
+import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { useQuery } from 'react-query'
 
 interface Props {

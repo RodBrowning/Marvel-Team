@@ -1,3 +1,4 @@
+import { addToCacheWithExpiration, getDataFromCache } from '../cache'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 
 import { MD5 } from 'crypto-js'
@@ -8,6 +9,13 @@ const axiosInstance = axios.create({
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchData = async (url: string, params = {}): Promise<any> => {
+  const stringParams = JSON.stringify(params)
+  const chacheKey = `${url}:${stringParams}`
+
+  // Return Cache  data
+  const cachedData = await getDataFromCache(chacheKey)
+  if (cachedData) return cachedData
+
   const privateKey = process.env.REACT_APP_PRIVATE_KEY
   const publicKey = process.env.REACT_APP_PUBLIC_KEY
   const ts = new Date().getTime().toString()
@@ -26,6 +34,11 @@ export const fetchData = async (url: string, params = {}): Promise<any> => {
       params: { ...apiParams, ...params },
       headers,
     })
+
+    // Cache the data
+    const expirationTime = 3600 * 24 // 1 hora * 24
+    await addToCacheWithExpiration(chacheKey, response.data, expirationTime)
+
     return response.data
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

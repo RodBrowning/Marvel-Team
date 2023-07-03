@@ -99,7 +99,7 @@ export const ImageDiv = styled.div<ImageDivProps>`
   background-position: center;
   grid-column: 6 / 13;
   height: 100%;
-  min-height: 350px;
+  min-height: 450px;
   clip-path: polygon(
     110px 0,
     100% 0,

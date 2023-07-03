@@ -15,7 +15,7 @@ import { RelatedWork } from '../../Components/relatedWork/relatedWork.styled'
 import RelatedWorkList from '../../Components/relatedWorkList/relatedWorkList'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
-import { fetchData } from '../../fetchFunctions/fetchAxios'
+import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { useQuery } from 'react-query'
 
 const fetchHeroData = async ({ queryKey }: any) => {

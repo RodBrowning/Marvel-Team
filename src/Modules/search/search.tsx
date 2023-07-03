@@ -8,7 +8,7 @@ import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
 import React from 'react'
 import SearchBar from '../../Components/searchBar/searchBar'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
-import { fetchData } from '../../fetchFunctions/fetchAxios'
+import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { useInfiniteQuery } from 'react-query'
 import { useInfiniteScrollTrigger } from '../../utils/hooks/useInfiniteScrollTrigger'
 

@@ -83,37 +83,42 @@ export const SideInfo = styled.div`
     margin-top: 20px;
   }
 `
-export const Author = styled.div`
+
+export const InfoBlock = styled.div`
   margin-bottom: 10px;
+
   p {
     font-weight: 100;
-    font-size: var(--big-sub-title);
-    line-height: 2rem;
   }
+
   p:has(span) {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     line-height: 1rem;
+
     span {
-      color: ${({ theme }) => theme.colors.primary};
       font-size: var(--small-sub-title);
+      color: ${({ theme }) => theme.colors.primary};
       font-weight: 600;
     }
   }
 `
-export const DateDisplay = styled.div`
-  margin-bottom: 10px;
+
+export const Author = styled(InfoBlock)`
+  p {
+    font-size: var(--big-sub-title);
+    margin-bottom: 5px;
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    p {
+      font-size: var(--small-title);
+      margin-bottom: 10px;
+    }
+  }
+`
+
+export const DateDisplay = styled(InfoBlock)`
   p {
     font-size: var(--small-title);
-    line-height: 2rem;
-  }
-  p:has(span) {
-    margin-bottom: 4px;
-    line-height: 1rem;
-    span {
-      color: ${({ theme }) => theme.colors.primary};
-      font-size: var(--small-sub-title);
-      font-weight: 600;
-    }
   }
 `
 
@@ -130,7 +135,7 @@ export const CardsTitle = styled.p`
   &:after {
     position: absolute;
     content: '';
-    width: 4px;
+    width: 3px;
     height: 15px;
     background-color: ${({ theme }) => theme.colors.secondary};
     transform-origin: 0% 100%;
@@ -138,7 +143,7 @@ export const CardsTitle = styled.p`
   }
   &:before {
     top: 0;
-    left: 40px;
+    left: clamp(1.625rem, -1.1296rem + 10.3704vw, 2.5rem);
   }
   &:after {
     bottom: 4px;
@@ -150,7 +155,7 @@ export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* flex-wrap: wrap; */
-  gap: 18px;
+  gap: clamp(0.375rem, -1.625rem + 4vw, 0.625rem);
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptopL}) {
     grid-template-columns: repeat(3, 1fr);

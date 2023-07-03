@@ -13,7 +13,7 @@ interface Props {
 const RelatedWorkList: React.FC<Props> = ({ title, data, path }) => {
   return (
     <div>
-      <SectionTitle size="medium">{title}</SectionTitle>
+      <SectionTitle size="small">{title}</SectionTitle>
       {data.map((item) => {
         const itemIndex = item.resourceURI.lastIndexOf('/') + 1
         const itemID = item.resourceURI.substring(itemIndex)

@@ -7,7 +7,7 @@ export const RelatedWork = styled.div`
   justify-content: space-around;
   gap: 24px;
   padding-block: 50px;
-  padding-inline: clamp(2.8125rem, -0.4018rem + 16.0714vw, 5.625rem);
+  padding-inline: 30px;
   flex-wrap: wrap;
   overflow: hidden;
   &:before,

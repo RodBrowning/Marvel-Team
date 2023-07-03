@@ -3,8 +3,7 @@ import styled from 'styled-components'
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  /* flex-wrap: wrap; */
-  gap: 18px;
+  gap: clamp(0.375rem, -5.625rem + 12vw, 1.125rem);
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptopL}) {
     grid-template-columns: repeat(4, 1fr);

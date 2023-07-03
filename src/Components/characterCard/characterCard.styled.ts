@@ -31,8 +31,7 @@ export const StyledCard = styled.div<CardProps>`
     border-bottom: 0;
     border-right: 0;
     color: ${({ theme }) => theme.colors.deepBlack};
-    font-size: ${({ size }) =>
-      size === 'regular' ? 'var(--medium-sub-title)' : 'var(--small-sub-title)'};
+    font-size: var(--medium-sub-title);
     font-weight: bold;
     padding: ${({ size }) => (size === 'regular' ? '6px 20px' : '0 10px')};
   }
@@ -49,7 +48,7 @@ export const StyledCard = styled.div<CardProps>`
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
     p {
-      padding: ${({ size }) => (size === 'regular' ? '6px 6px' : '0 10px')};
+      padding: ${({ size }) => (size === 'regular' ? '6px 6px' : '4px 10px')};
     }
   }
 `

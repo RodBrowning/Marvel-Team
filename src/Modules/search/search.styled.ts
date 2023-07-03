@@ -5,8 +5,11 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 4rem;
+  margin-top: clamp(2rem, -2.8571rem + 18.2857vw, 4rem);
   padding-bottom: 2.5rem;
+  > h3 {
+    margin-bottom: 15px;
+  }
 `
 export const SearchNameDisplay = styled.div`
   display: flex;

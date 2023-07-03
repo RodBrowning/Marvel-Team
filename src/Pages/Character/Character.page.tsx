@@ -16,6 +16,7 @@ import RelatedWorkList from '../../Components/relatedWorkList/relatedWorkList'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
+import { getImgURL } from '../../utils/utils'
 import { useQuery } from 'react-query'
 
 const fetchHeroData = async ({ queryKey }: any) => {
@@ -60,7 +61,7 @@ const Character: React.FC = () => {
         <div>
           <CharacterDiv>
             <CharacterInfo>
-              <SectionTitle>{charData?.name}</SectionTitle>
+              <h1>{charData?.name}</h1>
               <Description>
                 <h6>Description</h6>
                 <p>
@@ -74,15 +75,14 @@ const Character: React.FC = () => {
                   <h6>Comics</h6>
                   <div>
                     {comicsData.results.map((comic: any) => {
-                      let imgURL = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
-                      const undefinedImg = imgURL.match('image_not_available')
-
-                      if (undefinedImg !== null) {
-                        imgURL = '/assets/images/unknown-char.jpg'
-                      }
+                      const imgURL = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
                       return (
                         <Link to={`/comic/${comic.id}`} key={comic.id}>
-                          <img src={imgURL} alt={`${comic.title} image`} title={comic.title} />
+                          <img
+                            src={getImgURL(imgURL)}
+                            alt={`${comic.title} image`}
+                            title={comic.title}
+                          />
                         </Link>
                       )
                     })}
@@ -92,11 +92,10 @@ const Character: React.FC = () => {
                 ''
               )}
             </CharacterInfo>
-            <ImageDiv imgurl={`${charData?.thumbnail.path}.${charData?.thumbnail.extension}`}>
-              <img
-                src={`${charData?.thumbnail.path}.${charData?.thumbnail.extension}`}
-                alt={`${charData?.name}`}
-              />
+            <ImageDiv
+              imgurl={getImgURL(`${charData?.thumbnail.path}.${charData?.thumbnail.extension}`)}
+            >
+              <img src="" alt={`${charData?.name}`} />
             </ImageDiv>
           </CharacterDiv>
           {charData?.comics.items?.length > 0 ||

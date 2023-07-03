@@ -1,15 +1,17 @@
 import styled from 'styled-components'
 
 interface SectionTitleProps {
-  size?: 'big' | 'medium'
+  size?: 'small' | 'medium'
 }
 
 export const SectionTitle = styled.h3<SectionTitleProps>`
   position: relative;
   font-size: ${(props) =>
-    props.size === 'medium' ? 'var(--medium-sub-title)' : 'var(--small-title)'};
-  line-height: ${(props) => (props.size === 'medium' ? '2.5' : '1.7')};
+    props.size === 'medium' ? 'var(--small-title)' : 'var(--medium-sub-title)'};
+  line-height: ${(props) =>
+    props.size === 'medium' ? 'clamp(2.5rem, 1.6667rem + 4.1667vw, 3.125rem)' : '32px'};
   font-weight: 600;
+  margin-bottom: 30px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.deepBlack};
   &:before,
@@ -24,11 +26,14 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
   }
 
   &:before {
-    top: -4px;
-    left: 41px;
+    top: -10px;
+    left: ${(props) =>
+      props.size === 'medium'
+        ? 'clamp(2.5rem, 1.6667rem + 4.1667vw, 3.125rem);'
+        : 'clamp(2.4rem, 2.2667rem + 0.6667vw, 2.5rem)'};
   }
   &:after {
-    bottom: 4px;
+    bottom: -5px;
     left: 0;
   }
 
@@ -38,5 +43,5 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
 `
 
 SectionTitle.defaultProps = {
-  size: 'big',
+  size: 'small',
 }

@@ -15,7 +15,7 @@ const CharacterCard: React.FC<IProps> = ({ name, imgURL, id, size }) => {
     <StyledCard size={size}>
       <Link to={`/character/${id}`}>
         <img src={imgURL} alt={`${name} image`} />
-        <p>{truncateString(name, 20, '')}</p>
+        <p>{truncateString(name, 16, '')}</p>
       </Link>
     </StyledCard>
   )

@@ -10,8 +10,4 @@ export const Header = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
     height: 40px;
   }
-
-  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-    height: 35px;
-  }
 `

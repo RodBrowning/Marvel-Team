@@ -8,6 +8,7 @@ import {
   RelatedWorkInfo,
   SideInfo,
 } from './RelatedWorkData.styled'
+import { getImgURL, getReadableData } from '../../utils/utils'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { BackButton } from '../../Components/buttons/backButton.styled'
@@ -15,21 +16,12 @@ import CharacterCard from '../../Components/characterCard/characterCard'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
 import React from 'react'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
+import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { useQuery } from 'react-query'
 
 interface Props {
   apiRoute: string
-}
-
-const getReadableData = (dateString: string) => {
-  const date = new Date(dateString)
-  const formattedDate = date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
-  return formattedDate
 }
 
 const fetchRelatedWorkData = async ({ queryKey }: any) => {
@@ -67,15 +59,14 @@ const RelatedWorkData: React.FC<Props> = ({ apiRoute }) => {
     staleTime: oneHour,
   })
 
-  console.log('relatedWorkData', relatedWorkData)
-  console.log('charData', charData)
-
   return (
     <SectionContainer>
       {!isRelatedWorkFetching && !isRelatedWorkLoading && !isCharFetching && !isCharLoading ? (
         <RelatedWorkDiv>
           <img
-            src={`${relatedWorkData.thumbnail.path}.${relatedWorkData.thumbnail.extension}`}
+            src={getImgURL(
+              `${relatedWorkData.thumbnail.path}.${relatedWorkData.thumbnail.extension}`
+            )}
             alt={relatedWorkData.title}
           />
           <RelatedWorkInfo>
@@ -128,16 +119,18 @@ const RelatedWorkData: React.FC<Props> = ({ apiRoute }) => {
               ) : (
                 ''
               )}
-              {relatedWorkData.creators.items.length > 0 ? (
+              {relatedWorkData.creators.items.length > 0 &&
+              relatedWorkData.creators.items.some(
+                (item: any) => item.role.toLowerCase() === 'writer'
+              ) ? (
                 <Author>
                   <p>
                     <span>Author</span>
                   </p>
-                  {relatedWorkData.creators.items.length > 0 &&
-                    relatedWorkData.creators.items.map((item: any) => {
-                      if (item.role !== 'writer') return
-                      return <p key={item.resourceURI}>{item.name}</p>
-                    })}
+                  {relatedWorkData.creators.items.map((item: any) => {
+                    if (item.role.toLowerCase() !== 'writer') return
+                    return <p key={item.resourceURI}>{item.name}</p>
+                  })}
                 </Author>
               ) : (
                 ''
@@ -151,7 +144,7 @@ const RelatedWorkData: React.FC<Props> = ({ apiRoute }) => {
                     key={result.id}
                     id={result.id}
                     name={result.name}
-                    imgURL={`${result.thumbnail.path}.${result.thumbnail.extension}`}
+                    imgURL={getImgURL(`${result.thumbnail.path}.${result.thumbnail.extension}`)}
                     size="small"
                   />
                 )

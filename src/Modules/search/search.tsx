@@ -55,7 +55,7 @@ const Search: React.FC = () => {
 
   return (
     <SearchContainer>
-      <SectionTitle>Characters</SectionTitle>
+      <SectionTitle size="medium">Characters</SectionTitle>
       <SearchBar searchCallback={redirectCallback} />
       {heroName && heroName !== '' ? (
         <SearchNameDisplay>

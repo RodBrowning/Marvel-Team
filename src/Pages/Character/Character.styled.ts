@@ -9,9 +9,9 @@ export const CharacterDiv = styled.div`
   padding-bottom: 5rem;
 `
 export const CharacterInfo = styled.div`
-  display: inline-grid;
+  display: flex;
+  flex-direction: column;
   grid-column: 1 / 6;
-  h1,
   h6 {
     font-weight: 600;
   }
@@ -19,7 +19,7 @@ export const CharacterInfo = styled.div`
     position: relative;
     font-size: var(--big-title);
     color: ${({ theme }) => theme.colors.deepBlack};
-    line-height: 1.5;
+    line-height: clamp(2.8rem, 2.3143rem + 2.4286vw, 4.5rem);
     margin-bottom: 30px;
     font-weight: 600;
     &:before,
@@ -33,11 +33,11 @@ export const CharacterInfo = styled.div`
       transform: rotate(45deg);
     }
     &:before {
-      top: 0;
-      left: 70px;
+      top: -18px;
+      left: clamp(3.3125rem, 1.3125rem + 10vw, 5.5rem);
     }
     &:after {
-      bottom: 4px;
+      bottom: -12px;
       left: 0;
     }
   }
@@ -66,6 +66,10 @@ export const CharacterInfo = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
     grid-column: 1/-1;
     order: 2;
+
+    h1 {
+      margin-top: 30px;
+    }
   }
 `
 export const Description = styled.div`
@@ -79,7 +83,7 @@ export const Comics = styled.div`
   div {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+    grid-gap: clamp(0.1875rem, -8.3125rem + 17vw, 1.25rem);
     cursor: pointer;
     img {
       width: 100%;

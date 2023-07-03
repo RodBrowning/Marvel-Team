@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const LoadingStatus = styled.div`
   width: 100%;
-  height: 300px;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,11 @@ export const LoadingStatus = styled.div`
     }
     100% {
       opacity: 1;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    h1 {
+      color: white;
     }
   }
 `

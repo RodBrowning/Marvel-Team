@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ComicDiv = styled.div`
+export const RelatedWorkDiv = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -32,13 +32,14 @@ export const ComicDiv = styled.div`
     }
   }
 `
-export const ComicInfo = styled.div`
+export const RelatedWorkInfo = styled.div`
   grid-column: 4 / 11;
 
   h4 {
     color: ${({ theme }) => theme.colors.primary};
     font-size: var(--regular-text);
     font-weight: 600;
+    text-transform: capitalize;
   }
   h1 {
     position: relative;
@@ -49,8 +50,9 @@ export const ComicInfo = styled.div`
     font-weight: 400;
     margin-bottom: 8px;
   }
-  p {
+  > p {
     line-height: 24px;
+    width: 85%;
   }
   @media (prefers-color-scheme: dark) {
     h1 {
@@ -60,6 +62,9 @@ export const ComicInfo = styled.div`
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
     grid-column: 5 / 13;
+    > p {
+      width: 100%;
+    }
   }
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
     grid-column: 1 / -1;
@@ -83,12 +88,12 @@ export const Author = styled.div`
   margin-bottom: 10px;
   p {
     font-weight: 100;
-    font-size: var(--medium-sub-title);
-    margin-bottom: 15px;
+    font-size: var(--big-sub-title);
+    line-height: 2rem;
   }
   p:has(span) {
-    line-height: 2rem;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    line-height: 1rem;
     span {
       color: ${({ theme }) => theme.colors.primary};
       font-size: var(--small-sub-title);
@@ -99,12 +104,12 @@ export const Author = styled.div`
 export const DateDisplay = styled.div`
   margin-bottom: 10px;
   p {
-    font-size: var(--big-sub-title);
+    font-size: var(--small-title);
     line-height: 2rem;
   }
   p:has(span) {
-    line-height: 2rem;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    line-height: 1rem;
     span {
       color: ${({ theme }) => theme.colors.primary};
       font-size: var(--small-sub-title);
@@ -163,4 +168,11 @@ export const Cards = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
     grid-template-columns: repeat(2, 1fr);
   }
+`
+
+export const BackButtonDiv = styled.div`
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

@@ -23,9 +23,9 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/:heroName" element={<Home />} />
             <Route path="/character/:id" element={<Character />} />
-            <Route path="/comic/:id" element={<RelatedWorkData />} />
-            <Route path="/serie/:id" element={<RelatedWorkData />} />
-            <Route path="/event/:id" element={<RelatedWorkData />} />
+            <Route path="/comic/:id" element={<RelatedWorkData apiRoute="comics" />} />
+            <Route path="/serie/:id" element={<RelatedWorkData apiRoute="series" />} />
+            <Route path="/event/:id" element={<RelatedWorkData apiRoute="events" />} />
             <Route path="/*" element={<div>404</div>} />
           </Routes>
         </main>

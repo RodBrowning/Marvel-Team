@@ -6,6 +6,7 @@ import {
   Description,
   ImageDiv,
 } from './Character.styled'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { BackButton } from '../../Components/buttons/backButton.styled'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
@@ -15,8 +16,6 @@ import RelatedWorkList from '../../Components/relatedWorkList/relatedWorkList'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../fetchFunctions/fetchAxios'
-import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 
 const fetchHeroData = async ({ queryKey }: any) => {
@@ -103,9 +102,9 @@ const Character: React.FC = () => {
               />
             </ImageDiv>
           </CharacterDiv>
-          {charData?.series.items.length > 0 ||
-          charData?.series.items.length > 0 ||
-          charData?.events.items.length > 0 ? (
+          {charData?.comics.items?.length > 0 ||
+          charData?.series.items?.length > 0 ||
+          charData?.events.items?.length > 0 ? (
             <RelatedWork>
               {charData?.comics.items.length > 0 ? (
                 <RelatedWorkList data={charData.comics.items} title="Comics" path="comic" />

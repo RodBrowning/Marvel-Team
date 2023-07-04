@@ -1,6 +1,6 @@
 export const addToCacheWithExpiration = async (key: string, data: any, expirationTime: number) => {
   try {
-    const cache = await caches.open('my-cache')
+    const cache = await caches.open('marvel-cache')
 
     const cacheOptions = {
       headers: {
@@ -17,7 +17,7 @@ export const addToCacheWithExpiration = async (key: string, data: any, expiratio
 
 export const getDataFromCache = async (key: string): Promise<any | undefined> => {
   try {
-    const cache = await caches.open('my-cache')
+    const cache = await caches.open('marvel-cache')
     const response = await cache.match(key)
 
     if (response) {

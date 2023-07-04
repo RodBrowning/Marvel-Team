@@ -137,7 +137,6 @@ export const CardsTitle = styled.p`
   margin-top: 30px;
   margin-bottom: 10px;
   font-weight: 600;
-  color: inherit;
   &:before,
   &:after {
     position: absolute;

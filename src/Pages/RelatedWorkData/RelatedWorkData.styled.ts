@@ -51,7 +51,7 @@ export const RelatedWorkInfo = styled.div`
     font-size: var(--medium-title);
     color: ${({ theme }) => theme.colors.deepBlack};
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     font-weight: 400;
   }
   > p {
@@ -84,6 +84,11 @@ export const SideInfo = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
     text-align: left;
     position: relative;
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tabletSm}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: 20px;
@@ -119,6 +124,9 @@ export const Author = styled(InfoBlock)`
       font-size: var(--small-title);
       margin-bottom: 10px;
     }
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tabletSm}) {
+    order: -1;
   }
 `
 

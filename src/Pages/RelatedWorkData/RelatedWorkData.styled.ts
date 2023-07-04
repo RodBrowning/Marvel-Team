@@ -155,6 +155,9 @@ export const CardsTitle = styled.p`
     bottom: 4px;
     left: 0;
   }
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 `
 
 export const Cards = styled.div`

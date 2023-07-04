@@ -88,6 +88,11 @@ export const SideInfo = styled.div`
     grid-template-columns: 1fr 1fr;
     margin-top: 20px;
   }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    div:first-child {
+      order: 2;
+    }
+  }
 `
 
 export const InfoBlock = styled.div`

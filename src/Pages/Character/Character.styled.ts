@@ -8,6 +8,48 @@ export const CharacterDiv = styled.div`
   margin-top: 4rem;
   padding-bottom: 5rem;
 `
+export const ImageDiv = styled.div<ImageDivProps>`
+  background: url(${({ imgurl }) => imgurl});
+  background-size: cover;
+  background-position: center;
+  grid-column: 6 / 13;
+  height: 100%;
+  min-height: 450px;
+  clip-path: polygon(
+    clamp(80px, 3vw, 110px) 0,
+    100% 0,
+    100% calc(100% - clamp(80px, 3vw, 110px)),
+    calc(100% - clamp(80px, 3vw, 110px)) 100%,
+    0 100%,
+    0 clamp(80px, 3vw, 110px)
+  );
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    filter: brightness(130%);
+    scale: 1.01;
+  }
+  img {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
+    grid-column: 7/13;
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    order: 1;
+    grid-column: 1/-1;
+    clip-path: polygon(
+      70px 0,
+      100% 0,
+      100% calc(100% - 70px),
+      calc(100% - 70px) 100%,
+      0 100%,
+      0 70px
+    );
+  }
+`
 export const CharacterInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,48 +144,6 @@ export const Comics = styled.div`
 interface ImageDivProps {
   imgurl: string
 }
-export const ImageDiv = styled.div<ImageDivProps>`
-  background: url(${({ imgurl }) => imgurl});
-  background-size: cover;
-  background-position: center;
-  grid-column: 6 / 13;
-  height: 100%;
-  min-height: 450px;
-  clip-path: polygon(
-    110px 0,
-    100% 0,
-    100% calc(100% - 110px),
-    calc(100% - 110px) 100%,
-    0 100%,
-    0 110px
-  );
-  transition: all 0.25s ease-in-out;
-  &:hover {
-    filter: brightness(130%);
-    scale: 1.01;
-  }
-  img {
-    visibility: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-  }
-  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
-    grid-column: 7/13;
-  }
-  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
-    order: 1;
-    grid-column: 1/-1;
-    clip-path: polygon(
-      70px 0,
-      100% 0,
-      100% calc(100% - 70px),
-      calc(100% - 70px) 100%,
-      0 100%,
-      0 70px
-    );
-  }
-`
 
 export const BackButtonDiv = styled.div`
   height: 160px;

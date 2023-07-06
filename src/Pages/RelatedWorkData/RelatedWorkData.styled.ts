@@ -80,23 +80,23 @@ export const SideInfo = styled.div`
   top: 0;
   right: 0;
   text-align: right;
+  z-index: 1;
+  width: 16vw;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
     text-align: left;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     gap: 25px;
     margin-top: 15px;
   }
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tabletSm}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 0px;
     margin-top: 20px;
-  }
-  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-    div:first-child {
-      order: 2;
-    }
   }
 `
 
@@ -124,6 +124,18 @@ export const Author = styled(InfoBlock)`
     font-size: var(--big-sub-title);
     margin-bottom: 5px;
   }
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptop}) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    p {
+      min-width: calc(33% - 15px);
+      &:first-child {
+        width: 100%;
+      }
+    }
+  }
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
     p {
       font-size: var(--small-title);
@@ -131,7 +143,7 @@ export const Author = styled(InfoBlock)`
     }
   }
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.tabletSm}) {
-    order: -1;
+    grid-column: 1 / -1;
   }
 `
 
@@ -176,7 +188,6 @@ export const CardsTitle = styled.p`
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* flex-wrap: wrap; */
   gap: clamp(0.375rem, -1.625rem + 4vw, 0.625rem);
 
   @media only screen and (max-width: ${({ theme }) => theme.breakPoints.laptopL}) {

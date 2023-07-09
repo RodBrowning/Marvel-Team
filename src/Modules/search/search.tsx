@@ -35,6 +35,7 @@ const fetchHeros = async ({ queryKey, pageParam = 0 }: any) => {
 
 const Search: React.FC = () => {
   const navigate = useNavigate()
+
   const { heroName } = useParams()
   const oneHour = 1 * 3600000
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
@@ -47,7 +48,7 @@ const Search: React.FC = () => {
     },
   })
 
-  const sentinelRef = useInfiniteScrollTrigger(data, fetchNextPage, isFetchingNextPage)
+  const sentinelRef = useInfiniteScrollTrigger(data, fetchNextPage)
 
   const redirectCallback = (name: string) => {
     return navigate(`/${name}`)
@@ -97,7 +98,9 @@ const Search: React.FC = () => {
             return <CharacterCard key={hero.id} id={hero.id} name={hero.name} imgURL={imgURL} />
           })
         })}
-        {hasNextPage && <div ref={sentinelRef} style={{ height: '10px' }}></div>}
+        {hasNextPage && !isFetchingNextPage && (
+          <div ref={sentinelRef} style={{ height: '10px' }}></div>
+        )}
       </Cards>
       {isFetchingNextPage || !data ? (
         <LoadingStatus>

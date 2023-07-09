@@ -1,17 +1,12 @@
 import { useEffect, useRef } from 'react'
 
-export const useInfiniteScrollTrigger = (
-  data: any,
-  fetchNextPage: any,
-  isFetchingNextPage: boolean
-) => {
+export const useInfiniteScrollTrigger = (data: any, fetchNextPage: any) => {
   const sentinelRef = useRef<HTMLDivElement>(null)
-
   const observer = useRef(
     new IntersectionObserver(
       (entries) => {
         const sentinel = entries[0]
-        if (sentinel.isIntersecting && !isFetchingNextPage) {
+        if (sentinel.isIntersecting) {
           fetchNextPage()
         }
       },

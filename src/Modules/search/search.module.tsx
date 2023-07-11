@@ -9,6 +9,7 @@ import React from 'react'
 import SearchBar from '../../Components/searchBar/searchBar'
 import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
+import { getImgURL } from '../../utils/utils'
 import { useInfiniteQuery } from 'react-query'
 import { useInfiniteScrollTrigger } from '../../utils/hooks/useInfiniteScrollTrigger'
 
@@ -89,12 +90,7 @@ const Search: React.FC = () => {
             )
           }
           return page.results.map((hero: Hero) => {
-            let imgURL = `${hero.thumbnail.path}.${hero.thumbnail.extension}`
-            const undefinedImg = imgURL.match('image_not_available')
-
-            if (undefinedImg !== null) {
-              imgURL = '/assets/images/unknown-char.jpg'
-            }
+            const imgURL = getImgURL(`${hero.thumbnail.path}.${hero.thumbnail.extension}`)
             return <CharacterCard key={hero.id} id={hero.id} name={hero.name} imgURL={imgURL} />
           })
         })}

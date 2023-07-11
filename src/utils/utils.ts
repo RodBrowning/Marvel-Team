@@ -28,7 +28,7 @@ export const ScrollToTop = () => {
 // ///////////////////////////////////////////////////
 
 export const getImgURL = (imgURL: string) => {
-  const unavailableIMG = imgURL.match('image_not_available')
+  const unavailableIMG = imgURL.match(/image_not_available|4c002e0305708/)
 
   if (unavailableIMG !== null) {
     imgURL = '/assets/images/unknown-char.jpg'

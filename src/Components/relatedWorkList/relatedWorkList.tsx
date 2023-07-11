@@ -5,21 +5,20 @@ interface Props {
   title: string
   data: {
     resourceURI: string
-    name: string
+    title: string
+    id: number
   }[]
-  path: string
+  linkPath: string
 }
 
-const RelatedWorkList: React.FC<Props> = ({ title, data, path }) => {
+const RelatedWorkList: React.FC<Props> = ({ title, data, linkPath }) => {
   return (
     <div>
-      <SectionTitle size="small">{title}</SectionTitle>
+      <SectionTitle>{title}</SectionTitle>
       {data.map((item) => {
-        const itemIndex = item.resourceURI.lastIndexOf('/') + 1
-        const itemID = item.resourceURI.substring(itemIndex)
         return (
-          <a key={item.resourceURI} href={`/${path}/${itemID}`}>
-            {item.name}
+          <a key={item.resourceURI} href={`/${linkPath}/${item.id}`}>
+            {item.title}
           </a>
         )
       })}

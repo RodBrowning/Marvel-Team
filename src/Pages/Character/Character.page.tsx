@@ -8,13 +8,13 @@ import {
 } from './Character.styled'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import { BackButton } from '../../Components/buttons/backButton.styled'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
+import { ProfileTitle } from '../../Components/titles/profileTitle.styled'
 import React from 'react'
-import { RelatedWork } from '../../Components/relatedWork/relatedWork.styled'
-import RelatedWorkList from '../../Components/relatedWorkList/relatedWorkList'
+import { RedButton } from '../../Components/buttons/redButton.styled'
+import { RelatedWorkContainer } from '../../Components/relatedWorkContainer/relatedWorkContainer.styled'
+import RelatedWorkListModule from '../../Modules/relatedWorkList/relatedWorkList.module'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
-import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { getImgURL } from '../../utils/utils'
 import { useQuery } from 'react-query'
@@ -61,7 +61,7 @@ const Character: React.FC = () => {
         <div>
           <CharacterDiv>
             <CharacterInfo>
-              <h1>{charData?.name}</h1>
+              <ProfileTitle>{charData?.name}</ProfileTitle>
               <Description>
                 <h6>Description</h6>
                 <p>
@@ -101,29 +101,28 @@ const Character: React.FC = () => {
           {charData?.comics.items?.length > 0 ||
           charData?.series.items?.length > 0 ||
           charData?.events.items?.length > 0 ? (
-            <RelatedWork>
-              {charData?.comics.items.length > 0 ? (
-                <RelatedWorkList data={charData.comics.items} title="Comics" path="comic" />
+            <RelatedWorkContainer>
+              {id && charData?.comics.items.length > 0 ? (
+                <RelatedWorkListModule id={id} title="Comics" linkPath="comic" apiPath="comics" />
               ) : (
                 ''
               )}
-
-              {charData?.series.items.length > 0 ? (
-                <RelatedWorkList data={charData.series.items} title="Series" path="serie" />
+              {id && charData?.series.items.length > 0 ? (
+                <RelatedWorkListModule id={id} title="Series" linkPath="serie" apiPath="series" />
               ) : (
                 ''
               )}
-              {charData?.events.items.length > 0 ? (
-                <RelatedWorkList data={charData.events.items} title="Events" path="event" />
+              {id && charData?.events.items.length > 0 ? (
+                <RelatedWorkListModule id={id} title="Events" linkPath="event" apiPath="events" />
               ) : (
                 ''
               )}
-            </RelatedWork>
+            </RelatedWorkContainer>
           ) : (
             ''
           )}
           <BackButtonDiv>
-            <BackButton onClick={() => navigate(-1)}>Back</BackButton>
+            <RedButton onClick={() => navigate(-1)}>Back</RedButton>
           </BackButtonDiv>
         </div>
       ) : (

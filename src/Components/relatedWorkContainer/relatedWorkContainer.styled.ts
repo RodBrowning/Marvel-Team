@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const RelatedWork = styled.div`
+export const RelatedWorkContainer = styled.div`
   position: relative;
   background: white;
   display: flex;

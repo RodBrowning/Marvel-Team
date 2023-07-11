@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const BackButton = styled.a`
+export const RedButton = styled.a`
   font-family: var(--secondary-font-family);
   font-weight: bold;
   color: white;
   background: ${({ theme }) => theme.colors.primary};
+  text-transform: uppercase;
   text-decoration: none;
   padding: 12px 40px;
-  text-transform: uppercase;
   cursor: pointer;
   clip-path: polygon(
     15px 0,

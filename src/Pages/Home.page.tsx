@@ -1,6 +1,6 @@
 import { Hero } from '../Components/hero/hero.styled'
 import React from 'react'
-import Search from './../Modules/search/search'
+import Search from '../Modules/search/search.module'
 import { SectionContainer } from '../Components/sectionContainer/sectionContainer.styled'
 
 const Home: React.FC = () => {

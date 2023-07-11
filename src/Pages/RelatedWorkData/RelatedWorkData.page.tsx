@@ -11,12 +11,11 @@ import {
 import { getImgURL, getReadableData } from '../../utils/utils'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { BackButton } from '../../Components/buttons/backButton.styled'
 import CharacterCard from '../../Components/characterCard/characterCard'
 import { LoadingStatus } from '../../Components/loadingStatus/loading.styled'
 import React from 'react'
+import { RedButton } from '../../Components/buttons/redButton.styled'
 import { SectionContainer } from '../../Components/sectionContainer/sectionContainer.styled'
-import { SectionTitle } from '../../Components/titles/sectionTitle.styled'
 import { fetchData } from '../../utils/fetchFunctions/fetchAxios'
 import { useQuery } from 'react-query'
 
@@ -158,7 +157,7 @@ const RelatedWorkData: React.FC<Props> = ({ apiRoute }) => {
         </LoadingStatus>
       )}
       <BackButtonDiv>
-        <BackButton onClick={() => navigate(-1)}>Back</BackButton>
+        <RedButton onClick={() => navigate(-1)}>Back</RedButton>
       </BackButtonDiv>
     </SectionContainer>
   )

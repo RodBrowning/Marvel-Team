@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const SectionTitle = styled.h1`
+export const ProfileTitle = styled.h1`
   position: relative;
   font-size: var(--big-title);
   color: ${({ theme }) => theme.colors.deepBlack};
-  line-height: 1.5;
+  line-height: clamp(2.8rem, 2.3143rem + 2.4286vw, 4.5rem);
   margin-bottom: 30px;
   font-weight: 600;
   &:before,
@@ -18,11 +18,11 @@ export const SectionTitle = styled.h1`
     transform: rotate(45deg);
   }
   &:before {
-    top: 0;
-    left: 70px;
+    top: -18px;
+    left: clamp(3.3125rem, 1.3125rem + 10vw, 5.5rem);
   }
   &:after {
-    bottom: 4px;
+    bottom: -12px;
     left: 0;
   }
 `

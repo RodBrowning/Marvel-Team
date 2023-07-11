@@ -4,7 +4,7 @@ interface SectionTitleProps {
   size?: 'small' | 'medium'
 }
 
-export const SectionTitle = styled.h3<SectionTitleProps>`
+const SectionTitle = styled.h3<SectionTitleProps>`
   position: relative;
   font-size: ${(props) =>
     props.size === 'medium' ? 'var(--small-title)' : 'var(--medium-sub-title)'};
@@ -45,3 +45,5 @@ export const SectionTitle = styled.h3<SectionTitleProps>`
 SectionTitle.defaultProps = {
   size: 'small',
 }
+
+export { SectionTitle }

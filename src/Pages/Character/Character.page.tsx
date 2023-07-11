@@ -65,7 +65,7 @@ const Character: React.FC = () => {
               <Description>
                 <h6>Description</h6>
                 <p>
-                  {charData?.description !== ''
+                  {charData?.description.trim() !== ''
                     ? charData?.description
                     : 'No description available.'}
                 </p>

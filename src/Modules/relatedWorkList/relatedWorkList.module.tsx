@@ -25,7 +25,7 @@ const fetchRelatedWorkList = async ({ queryKey, pageParam = 0 }: any) => {
 
 const RelatedWorkListModule: React.FC<Props> = ({ id, title, linkPath, apiPath }) => {
   const oneHour = 1 * 3600000
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetching } = useInfiniteQuery({
     queryKey: ['relatedWork', id, apiPath, `/v1/public/characters`],
     queryFn: fetchRelatedWorkList,
     staleTime: oneHour,
@@ -57,7 +57,7 @@ const RelatedWorkListModule: React.FC<Props> = ({ id, title, linkPath, apiPath }
           <LoadMoreButton onClick={() => fetchNextPage()}>Load more</LoadMoreButton>
         </CenterButton>
       )}
-      {isFetchingNextPage ? (
+      {isFetching ? (
         <LoadingStatus size="medium" style={{ height: '75px' }}>
           <h5>Loading...</h5>
         </LoadingStatus>

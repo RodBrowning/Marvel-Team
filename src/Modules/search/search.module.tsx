@@ -39,7 +39,7 @@ const Search: React.FC = () => {
 
   const { heroName } = useParams()
   const oneHour = 1 * 3600000
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetching } = useInfiniteQuery({
     queryKey: ['allHeroes', heroName, '/v1/public/characters'],
     queryFn: fetchHeros,
     staleTime: oneHour,
@@ -98,7 +98,7 @@ const Search: React.FC = () => {
           <div ref={sentinelRef} style={{ height: '10px' }}></div>
         )}
       </Cards>
-      {isFetchingNextPage || !data ? (
+      {isFetching ? (
         <LoadingStatus>
           <h1>Loading...</h1>
         </LoadingStatus>

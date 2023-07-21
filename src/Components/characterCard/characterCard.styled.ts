@@ -4,7 +4,7 @@ interface CardProps {
   size?: 'regular' | 'small'
 }
 
-export const StyledCard = styled.div<CardProps>`
+const StyledCard = styled.div<CardProps>`
   position: relative;
   height: ${({ size }) => (size === 'regular' ? '250px' : '150px')};
   border: ${({ size }) => (size === 'regular' ? '3px' : '2px')} solid
@@ -57,3 +57,5 @@ export const StyledCard = styled.div<CardProps>`
 StyledCard.defaultProps = {
   size: 'regular',
 }
+
+export { StyledCard }

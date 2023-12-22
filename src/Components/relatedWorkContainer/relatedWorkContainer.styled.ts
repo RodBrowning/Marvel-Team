@@ -4,10 +4,10 @@ export const RelatedWorkContainer = styled.div`
   position: relative;
   background: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 24px;
   padding-block: 50px;
-  padding-inline: 30px;
+  padding-inline: 60px;
   flex-wrap: wrap;
   overflow: hidden;
   &:before,
@@ -35,6 +35,8 @@ export const RelatedWorkContainer = styled.div`
     border-right: 0;
   }
   div {
+    flex: 1;
+    min-width: 200px;
     h3 {
       margin-bottom: 15px;
       color: ${({ theme }) => theme.colors.deepBlack};
